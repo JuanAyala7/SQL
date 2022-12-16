@@ -83,3 +83,18 @@ This is where the SQL Alter Table Statement comes in. It's used to add, delete o
 
 ALTER TABLE products
 ADD stock INT
+
+
+
+If you want to Delete records, you can simply write 
+
+DELETE FROM 'table name'
+WHERE
+
+When stating 'DELETE FROM' you must specify WHERE something meets a certain condition.
+
+DELETE FROM products
+WHERE id = 2
+
+It's important to specify Where you are wanting an Update and/or Deletion within your database. 
+This is because you can accidentally update or delete your entire table/database if you're not careful.
