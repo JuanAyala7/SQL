@@ -18,8 +18,6 @@ SQL Insert Into
 
 Now it's time to create your table in SQL
 
-1. Create
-
 CREATE TABLE products (
  id INT,
  name STRING,
@@ -34,16 +32,16 @@ VALUES (1, "Pen", 1.20)
 
 *You should now see one row of information within your 'products' table*
 
-If you want to skip a field, for example, add another record which is not the product we have in the table, so it doesn't have a set price; you can insert into the 'products' table the data that you have by specifying the columns that you have data for.
-
-3. Update 
+If you want to skip a field, for example, add another record which is not the product we have in the table, 
+so it doesn't have a set price; you can insert into the 'products' table the data that you have by specifying the columns that you have data for.
 
 INSERT INTO products (id, name)
 VALUES (2, "Pencil")
 
 *You should have this within your products table, leaving the price empty/NULL*
 
-This is how you would create a new table using the Structered Query Language (SQL) and also how you would start inserting pieces of data into your table. 
+This is how you would create a new table using the Structered Query Language (SQL) 
+and also how you would start inserting pieces of data into your table. 
 
 
 
@@ -64,3 +62,24 @@ But what if you want a particular row from your database?
 SQL Where
 
 SELECT * FROM products WHERE id=1
+
+
+
+How do you Update records in your database?
+
+For example, the current price of a pencil on our table shows as 'NULL'
+
+If I wanted to update that record to now provide a value for the price of my pencil then I can use the SQL Update statement.
+
+UPDATE products 
+SET price = 0.80 
+WHERE id=2
+
+The UPDATE keyword is used to specify the table you want to update and then you SET the values that you want to update; and you can specify WHERE to only update the records that you were interested in updating.
+
+What if you wanted to change the table instead of a particular record? What if you also wanted to keep track of the stock of each of your products? This'll mean you'd need a new column.
+
+This is where the SQL Alter Table Statement comes in. It's used to add, delete or modify columns in an existing table. This is how you write it:
+
+ALTER TABLE products
+ADD stock INT
