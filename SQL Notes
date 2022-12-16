@@ -45,4 +45,22 @@ VALUES (2, "Pencil")
 
 This is how you would create a new table using the Structered Query Language (SQL) and also how you would start inserting pieces of data into your table. 
 
+
+
 But how would you read and seach through your table to find a particular piece of data?
+
+SQL Select: This allows you to read the data from your database.
+
+For example: When you see the entire table, you will see the following line of code:
+
+SELECT * FROM products
+
+However, if you only wanted one column or two coulumns from the table then instead of an asterix, you can simply write the following:
+
+SELECT name, price FROM products
+
+But what if you want a particular row from your database?
+
+SQL Where
+
+SELECT * FROM products WHERE id=1
