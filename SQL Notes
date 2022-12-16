@@ -75,9 +75,11 @@ UPDATE products
 SET price = 0.80 
 WHERE id=2
 
-The UPDATE keyword is used to specify the table you want to update and then you SET the values that you want to update; and you can specify WHERE to only update the records that you were interested in updating.
+The UPDATE keyword is used to specify the table you want to update and then you SET the values that you want to update; 
+and you can specify WHERE to only update the records that you were interested in updating.
 
-What if you wanted to change the table instead of a particular record? What if you also wanted to keep track of the stock of each of your products? This'll mean you'd need a new column.
+What if you wanted to change the table instead of a particular record? 
+What if you also wanted to keep track of the stock of each of your products? This'll mean you'd need a new column.
 
 This is where the SQL Alter Table Statement comes in. It's used to add, delete or modify columns in an existing table. This is how you write it:
 
@@ -98,3 +100,56 @@ WHERE id = 2
 
 It's important to specify Where you are wanting an Update and/or Deletion within your database. 
 This is because you can accidentally update or delete your entire table/database if you're not careful.
+
+
+
+Now let's build an 'orders' table to show the relationships in SQL
+
+CREATE TABLE orders (
+   id INT NOT NULL,
+  order_number INT,
+  customer_id INT,
+  product_id INT,
+  PRIMARY KEY (id)
+ )
+
+customer_id INT & product_id INT, 
+will be a field that will act as a foreign key to our table which'll point to a particular record in our customer & product table.
+
+You can also input a line called 'Foreign Key'.
+
+The foreign key is going to be the key that's going to link all tables together.
+This is what's going to establish the relationship. 
+
+Now it looks like the following:
+
+CREATE TABLE orders (
+   id INT NOT NULL,
+  order_number INT,
+  customer_id INT,
+  product_id INT,
+  PRIMARY KEY (id)
+  FOREIGN KEY (customer_id) REFERENCES customers(id),
+  FOREIGN KEY (product_id) REFERENCES products (id)
+ )
+ 
+be sure to add 'Reference' to your Foreign key statement to specify the relationship you want to build.
+
+SQL Inner Join Key word allows you to select records that have matching values in both tables.
+
+The Inner Join Syntax is the following:
+
+SELECT orders.order_number, customers.first_name, customers.last_name, customers.address
+FROM orders
+INNER JOIN customers
+ON orders.customer_id = customers.id
+
+Now you've managed to search through all of your tables & records and matched up the orders and join them in a new table which is way more useful.
+
+Now that the order is joined with the customer, here's the order joined with the product that the order is relating to.
+
+SELECT orders.order_number, products.name, products.price, products.stock
+FROM orders
+INNER JOIN products ON orders.product_id = products.id
+
+You've now joined the orders table with the products table along with a new table that's created based off this INNER JOIN.
