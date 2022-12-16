@@ -1,0 +1,48 @@
+SQL Notes
+
+With every single type of database, the main things that you'll be doing with it is the following:
+
+Create 
+Read
+Update
+Destroy
+
+CRUD, for short.
+
+Here is some relvant searches to go through via W3Schools:
+
+SQL Key Words
+SQL Data types
+SQL Primary Keys
+SQL Insert Into
+
+Now it's time to create your table in SQL
+
+1. Create
+
+CREATE TABLE products (
+ id INT,
+ name STRING,
+ price MONEY,
+ PRIMARY KEY (id)
+)
+
+*Table should be blank so far since there is no information*
+
+INSERT INTO products
+VALUES (1, "Pen", 1.20)
+
+*You should now see one row of information within your 'products' table*
+
+If you want to skip a field, for example, add another record which is not the product we have in the table, so it doesn't have a set price; you can insert into the 'products' table the data that you have by specifying the columns that you have data for.
+
+3. Update 
+
+INSERT INTO products (id, name)
+VALUES (2, "Pencil")
+
+*You should have this within your products table, leaving the price empty/NULL*
+
+This is how you would create a new table using the Structered Query Language (SQL) and also how you would start inserting pieces of data into your table. 
+
+But how would you read and seach through your table to find a particular piece of data?
